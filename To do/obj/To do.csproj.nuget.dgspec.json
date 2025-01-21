@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Users\\practecnologia06\\source\\repos\\To do\\To do\\To do.csproj": {}
+    "D:\\Users\\practecnologia06\\source\\repos\\To do\\ToDo.Net\\ToDo.Net\\To do\\To do.csproj": {}
   },
   "projects": {
-    "D:\\Users\\practecnologia06\\source\\repos\\To do\\To do\\To do.csproj": {
+    "D:\\Users\\practecnologia06\\source\\repos\\To do\\ToDo.Net\\ToDo.Net\\To do\\To do.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Users\\practecnologia06\\source\\repos\\To do\\To do\\To do.csproj",
+        "projectUniqueName": "D:\\Users\\practecnologia06\\source\\repos\\To do\\ToDo.Net\\ToDo.Net\\To do\\To do.csproj",
         "projectName": "To do",
-        "projectPath": "D:\\Users\\practecnologia06\\source\\repos\\To do\\To do\\To do.csproj",
+        "projectPath": "D:\\Users\\practecnologia06\\source\\repos\\To do\\ToDo.Net\\ToDo.Net\\To do\\To do.csproj",
         "packagesPath": "D:\\Users\\practecnologia06\\.nuget\\packages\\",
-        "outputPath": "D:\\Users\\practecnologia06\\source\\repos\\To do\\To do\\obj\\",
+        "outputPath": "D:\\Users\\practecnologia06\\source\\repos\\To do\\ToDo.Net\\ToDo.Net\\To do\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

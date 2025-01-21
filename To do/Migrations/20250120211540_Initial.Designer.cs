@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using To_do.Contexto;
 
@@ -11,9 +12,11 @@ using To_do.Contexto;
 namespace To_do.Migrations
 {
     [DbContext(typeof(AplicacionDbContexto))]
-    partial class AplicacionDbContextoModelSnapshot : ModelSnapshot
+    [Migration("20250120211540_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,41 +27,26 @@ namespace To_do.Migrations
 
             modelBuilder.Entity("To_do.Modelos.DetalleTarea", b =>
                 {
-                    b.Property<Guid>("TareaId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Base64")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Fecha")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("TareaId");
-
-                    b.ToTable("DetalleTareas");
-                });
-
-            modelBuilder.Entity("To_do.Modelos.PasoTarea", b =>
-                {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<bool>("Completado")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Descricion")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("Fecha")
+                        .HasColumnType("datetime2");
 
                     b.Property<Guid>("TareaId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Url")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("TareaId");
+                    b.HasIndex("TareaId")
+                        .IsUnique();
 
-                    b.ToTable("PasoTarea");
+                    b.ToTable("Imagenes");
                 });
 
             modelBuilder.Entity("To_do.Modelos.Tarea", b =>
@@ -71,9 +59,11 @@ namespace To_do.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Descripcion")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nombre")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -83,31 +73,17 @@ namespace To_do.Migrations
 
             modelBuilder.Entity("To_do.Modelos.DetalleTarea", b =>
                 {
-                    b.HasOne("To_do.Modelos.Tarea", "Tarea")
+                    b.HasOne("To_do.Modelos.Tarea", null)
                         .WithOne("DetalleTarea")
                         .HasForeignKey("To_do.Modelos.DetalleTarea", "TareaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Tarea");
-                });
-
-            modelBuilder.Entity("To_do.Modelos.PasoTarea", b =>
-                {
-                    b.HasOne("To_do.Modelos.Tarea", "Tarea")
-                        .WithMany("Pasos")
-                        .HasForeignKey("TareaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Tarea");
                 });
 
             modelBuilder.Entity("To_do.Modelos.Tarea", b =>
                 {
-                    b.Navigation("DetalleTarea");
-
-                    b.Navigation("Pasos");
+                    b.Navigation("DetalleTarea")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

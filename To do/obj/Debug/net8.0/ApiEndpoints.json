@@ -1,5 +1,114 @@
 [
   {
+    "ContainingType": "To_do.Controllers.PasoTareasController",
+    "Method": "GetPasoTarea",
+    "RelativePath": "api/PasoTareas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[To_do.Modelos.PasoTarea, To do, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "To_do.Controllers.PasoTareasController",
+    "Method": "PostPasoTarea",
+    "RelativePath": "api/PasoTareas",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pasoTarea",
+        "Type": "To_do.Modelos.PasoTarea",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "To_do.Modelos.PasoTarea",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "To_do.Controllers.PasoTareasController",
+    "Method": "GetPasoTarea",
+    "RelativePath": "api/PasoTareas/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "To_do.Modelos.PasoTarea",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "To_do.Controllers.PasoTareasController",
+    "Method": "PutPasoTarea",
+    "RelativePath": "api/PasoTareas/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "pasoTarea",
+        "Type": "To_do.Modelos.PasoTarea",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "To_do.Controllers.PasoTareasController",
+    "Method": "DeletePasoTarea",
+    "RelativePath": "api/PasoTareas/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "To_do.Controllers.TareasController",
     "Method": "GetTareas",
     "RelativePath": "api/Tareas",
@@ -55,7 +164,7 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.Int32",
+        "Type": "System.Guid",
         "IsRequired": true
       }
     ],
@@ -81,7 +190,7 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.Int32",
+        "Type": "System.Guid",
         "IsRequired": true
       },
       {
@@ -102,7 +211,296 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.Int32",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "To_do.Controllers.DetalleTareaController",
+    "Method": "Get",
+    "RelativePath": "DetalleTarea",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[To_do.Modelos.DetalleTarea, To do, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "To_do.Controllers.DetalleTareaController",
+    "Method": "Post",
+    "RelativePath": "DetalleTarea",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "TareaId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "Base64",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Fecha",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tarea.Id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tarea.Nombre",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tarea.Descripcion",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tarea.Completado",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tarea.Pasos",
+        "Type": "System.Collections.Generic.ICollection\u00601[[To_do.Modelos.PasoTarea, To do, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tarea.DetalleTarea.TareaId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tarea.DetalleTarea.Base64",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tarea.DetalleTarea.Fecha",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tarea.DetalleTarea.Tarea.Id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tarea.DetalleTarea.Tarea.Nombre",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tarea.DetalleTarea.Tarea.Descripcion",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tarea.DetalleTarea.Tarea.Completado",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tarea.DetalleTarea.Tarea.Pasos",
+        "Type": "System.Collections.Generic.ICollection\u00601[[To_do.Modelos.PasoTarea, To do, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tarea.DetalleTarea.Tarea.DetalleTarea",
+        "Type": "To_do.Modelos.DetalleTarea",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tarea.DetalleTarea.File",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "File",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "To_do.Modelos.DetalleTarea",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "To_do.Controllers.DetalleTareaController",
+    "Method": "Get",
+    "RelativePath": "DetalleTarea/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "To_do.Modelos.DetalleTarea",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "To_do.Controllers.DetalleTareaController",
+    "Method": "Put",
+    "RelativePath": "DetalleTarea/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "TareaId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "Base64",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Fecha",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tarea.Id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tarea.Nombre",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tarea.Descripcion",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tarea.Completado",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tarea.Pasos",
+        "Type": "System.Collections.Generic.ICollection\u00601[[To_do.Modelos.PasoTarea, To do, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tarea.DetalleTarea.TareaId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tarea.DetalleTarea.Base64",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tarea.DetalleTarea.Fecha",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tarea.DetalleTarea.Tarea.Id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tarea.DetalleTarea.Tarea.Nombre",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tarea.DetalleTarea.Tarea.Descripcion",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tarea.DetalleTarea.Tarea.Completado",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tarea.DetalleTarea.Tarea.Pasos",
+        "Type": "System.Collections.Generic.ICollection\u00601[[To_do.Modelos.PasoTarea, To do, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tarea.DetalleTarea.Tarea.DetalleTarea",
+        "Type": "To_do.Modelos.DetalleTarea",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tarea.DetalleTarea.File",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "File",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "To_do.Controllers.DetalleTareaController",
+    "Method": "Delete",
+    "RelativePath": "DetalleTarea/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
         "IsRequired": true
       }
     ],

@@ -5,6 +5,622 @@
     "version": "1.0"
   },
   "paths": {
+    "/DetalleTarea": {
+      "get": {
+        "tags": [
+          "DetalleTarea"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DetalleTarea"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DetalleTarea"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DetalleTarea"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "DetalleTarea"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/DetalleTarea"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "TareaId": {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      "Base64": {
+                        "type": "string"
+                      },
+                      "Fecha": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "Tarea.Id": {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      "Tarea.Nombre": {
+                        "type": "string"
+                      },
+                      "Tarea.Descripcion": {
+                        "type": "string"
+                      },
+                      "Tarea.Completado": {
+                        "type": "boolean"
+                      },
+                      "Tarea.Pasos": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/components/schemas/PasoTarea"
+                        }
+                      },
+                      "Tarea.DetalleTarea.TareaId": {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      "Tarea.DetalleTarea.Base64": {
+                        "type": "string"
+                      },
+                      "Tarea.DetalleTarea.Fecha": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "Tarea.DetalleTarea.Tarea.Id": {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      "Tarea.DetalleTarea.Tarea.Nombre": {
+                        "type": "string"
+                      },
+                      "Tarea.DetalleTarea.Tarea.Descripcion": {
+                        "type": "string"
+                      },
+                      "Tarea.DetalleTarea.Tarea.Completado": {
+                        "type": "boolean"
+                      },
+                      "Tarea.DetalleTarea.Tarea.Pasos": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/components/schemas/PasoTarea"
+                        }
+                      },
+                      "Tarea.DetalleTarea.File": {
+                        "type": "string",
+                        "format": "binary"
+                      },
+                      "File": {
+                        "type": "string",
+                        "format": "binary"
+                      }
+                    }
+                  }
+                ]
+              },
+              "encoding": {
+                "TareaId": {
+                  "style": "form"
+                },
+                "Base64": {
+                  "style": "form"
+                },
+                "Fecha": {
+                  "style": "form"
+                },
+                "Tarea.Id": {
+                  "style": "form"
+                },
+                "Tarea.Nombre": {
+                  "style": "form"
+                },
+                "Tarea.Descripcion": {
+                  "style": "form"
+                },
+                "Tarea.Completado": {
+                  "style": "form"
+                },
+                "Tarea.Pasos": {
+                  "style": "form"
+                },
+                "Tarea.DetalleTarea.TareaId": {
+                  "style": "form"
+                },
+                "Tarea.DetalleTarea.Base64": {
+                  "style": "form"
+                },
+                "Tarea.DetalleTarea.Fecha": {
+                  "style": "form"
+                },
+                "Tarea.DetalleTarea.Tarea.Id": {
+                  "style": "form"
+                },
+                "Tarea.DetalleTarea.Tarea.Nombre": {
+                  "style": "form"
+                },
+                "Tarea.DetalleTarea.Tarea.Descripcion": {
+                  "style": "form"
+                },
+                "Tarea.DetalleTarea.Tarea.Completado": {
+                  "style": "form"
+                },
+                "Tarea.DetalleTarea.Tarea.Pasos": {
+                  "style": "form"
+                },
+                "Tarea.DetalleTarea.File": {
+                  "style": "form"
+                },
+                "File": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DetalleTarea"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DetalleTarea"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DetalleTarea"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/DetalleTarea/{id}": {
+      "get": {
+        "tags": [
+          "DetalleTarea"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DetalleTarea"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DetalleTarea"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DetalleTarea"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "DetalleTarea"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/DetalleTarea"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "TareaId": {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      "Base64": {
+                        "type": "string"
+                      },
+                      "Fecha": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "Tarea.Id": {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      "Tarea.Nombre": {
+                        "type": "string"
+                      },
+                      "Tarea.Descripcion": {
+                        "type": "string"
+                      },
+                      "Tarea.Completado": {
+                        "type": "boolean"
+                      },
+                      "Tarea.Pasos": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/components/schemas/PasoTarea"
+                        }
+                      },
+                      "Tarea.DetalleTarea.TareaId": {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      "Tarea.DetalleTarea.Base64": {
+                        "type": "string"
+                      },
+                      "Tarea.DetalleTarea.Fecha": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "Tarea.DetalleTarea.Tarea.Id": {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      "Tarea.DetalleTarea.Tarea.Nombre": {
+                        "type": "string"
+                      },
+                      "Tarea.DetalleTarea.Tarea.Descripcion": {
+                        "type": "string"
+                      },
+                      "Tarea.DetalleTarea.Tarea.Completado": {
+                        "type": "boolean"
+                      },
+                      "Tarea.DetalleTarea.Tarea.Pasos": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/components/schemas/PasoTarea"
+                        }
+                      },
+                      "Tarea.DetalleTarea.File": {
+                        "type": "string",
+                        "format": "binary"
+                      },
+                      "File": {
+                        "type": "string",
+                        "format": "binary"
+                      }
+                    }
+                  }
+                ]
+              },
+              "encoding": {
+                "TareaId": {
+                  "style": "form"
+                },
+                "Base64": {
+                  "style": "form"
+                },
+                "Fecha": {
+                  "style": "form"
+                },
+                "Tarea.Id": {
+                  "style": "form"
+                },
+                "Tarea.Nombre": {
+                  "style": "form"
+                },
+                "Tarea.Descripcion": {
+                  "style": "form"
+                },
+                "Tarea.Completado": {
+                  "style": "form"
+                },
+                "Tarea.Pasos": {
+                  "style": "form"
+                },
+                "Tarea.DetalleTarea.TareaId": {
+                  "style": "form"
+                },
+                "Tarea.DetalleTarea.Base64": {
+                  "style": "form"
+                },
+                "Tarea.DetalleTarea.Fecha": {
+                  "style": "form"
+                },
+                "Tarea.DetalleTarea.Tarea.Id": {
+                  "style": "form"
+                },
+                "Tarea.DetalleTarea.Tarea.Nombre": {
+                  "style": "form"
+                },
+                "Tarea.DetalleTarea.Tarea.Descripcion": {
+                  "style": "form"
+                },
+                "Tarea.DetalleTarea.Tarea.Completado": {
+                  "style": "form"
+                },
+                "Tarea.DetalleTarea.Tarea.Pasos": {
+                  "style": "form"
+                },
+                "Tarea.DetalleTarea.File": {
+                  "style": "form"
+                },
+                "File": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "DetalleTarea"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/PasoTareas": {
+      "get": {
+        "tags": [
+          "PasoTareas"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PasoTarea"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PasoTarea"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PasoTarea"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "PasoTareas"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PasoTarea"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PasoTarea"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PasoTarea"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PasoTarea"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PasoTarea"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PasoTarea"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/PasoTareas/{id}": {
+      "get": {
+        "tags": [
+          "PasoTareas"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PasoTarea"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PasoTarea"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PasoTarea"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "PasoTareas"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PasoTarea"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PasoTarea"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PasoTarea"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "PasoTareas"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Tareas": {
       "get": {
         "tags": [
@@ -100,8 +716,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],
@@ -138,8 +754,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],
@@ -178,8 +794,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],
@@ -193,15 +809,68 @@
   },
   "components": {
     "schemas": {
-      "Tarea": {
+      "DetalleTarea": {
         "required": [
-          "nombre"
+          "tarea"
+        ],
+        "type": "object",
+        "properties": {
+          "tareaId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "base64": {
+            "type": "string",
+            "nullable": true
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "tarea": {
+            "$ref": "#/components/schemas/Tarea"
+          },
+          "file": {
+            "type": "string",
+            "format": "binary",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PasoTarea": {
+        "required": [
+          "descricion"
         ],
         "type": "object",
         "properties": {
           "id": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "uuid"
+          },
+          "descricion": {
+            "type": "string",
+            "nullable": true
+          },
+          "completado": {
+            "type": "boolean"
+          },
+          "tareaId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "tarea": {
+            "$ref": "#/components/schemas/Tarea"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tarea": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
           },
           "nombre": {
             "type": "string",
@@ -213,6 +882,16 @@
           },
           "completado": {
             "type": "boolean"
+          },
+          "pasos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PasoTarea"
+            },
+            "nullable": true
+          },
+          "detalleTarea": {
+            "$ref": "#/components/schemas/DetalleTarea"
           }
         },
         "additionalProperties": false
