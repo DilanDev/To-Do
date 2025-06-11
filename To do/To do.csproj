@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Modelos\Validaciones\**" />
+    <Content Remove="Modelos\Validaciones\**" />
+    <EmbeddedResource Remove="Modelos\Validaciones\**" />
+    <None Remove="Modelos\Validaciones\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.1">
@@ -19,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\" />
+    <Folder Include="Servicios\" />
   </ItemGroup>
 
 </Project>

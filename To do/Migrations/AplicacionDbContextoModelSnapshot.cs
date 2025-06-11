@@ -22,45 +22,6 @@ namespace To_do.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("To_do.Modelos.DetalleTarea", b =>
-                {
-                    b.Property<Guid>("TareaId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Base64")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Fecha")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("TareaId");
-
-                    b.ToTable("DetalleTareas");
-                });
-
-            modelBuilder.Entity("To_do.Modelos.PasoTarea", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("Completado")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Descricion")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("TareaId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("TareaId");
-
-                    b.ToTable("PasoTarea");
-                });
-
             modelBuilder.Entity("To_do.Modelos.Tarea", b =>
                 {
                     b.Property<Guid>("Id")
@@ -73,41 +34,19 @@ namespace To_do.Migrations
                     b.Property<string>("Descripcion")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("FechaFinal")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("FechaInicio")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Nombre")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Tareas");
-                });
-
-            modelBuilder.Entity("To_do.Modelos.DetalleTarea", b =>
-                {
-                    b.HasOne("To_do.Modelos.Tarea", "Tarea")
-                        .WithOne("DetalleTarea")
-                        .HasForeignKey("To_do.Modelos.DetalleTarea", "TareaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Tarea");
-                });
-
-            modelBuilder.Entity("To_do.Modelos.PasoTarea", b =>
-                {
-                    b.HasOne("To_do.Modelos.Tarea", "Tarea")
-                        .WithMany("Pasos")
-                        .HasForeignKey("TareaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Tarea");
-                });
-
-            modelBuilder.Entity("To_do.Modelos.Tarea", b =>
-                {
-                    b.Navigation("DetalleTarea");
-
-                    b.Navigation("Pasos");
                 });
 #pragma warning restore 612, 618
         }
