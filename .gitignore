@@ -1,1 +1,30 @@
+# Archivos y carpetas de Visual Studio
 .vs/
+*.user
+*.suo
+
+# Archivos de compilación
+bin/
+obj/
+out/
+
+# Archivos de paquetes NuGet
+*.nupkg
+*.snupkg
+packages/
+*.nuspec
+
+# Archivos de configuración local
+*.local.json
+appsettings.Development.json
+
+# Archivos de logs
+*.log
+
+# Archivos de sistema
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Archivos de publicación
+publish/
