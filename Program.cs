@@ -4,14 +4,24 @@ using To_do.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add CORS
+// Add CORS - Configuración más permisiva para desarrollo
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowReact", builder =>
-            builder.WithOrigins("http://localhost:5173")
-                   .AllowAnyHeader()
-                   .AllowAnyMethod()
-                   .AllowCredentials());
+    options.AddPolicy("AllowReact", policy =>
+    {
+        policy.WithOrigins("http://localhost:3000", "https://localhost:3000")
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials();
+    });
+
+    // Política alternativa más permisiva para desarrollo
+    options.AddPolicy("Development", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
 });
 
 // Add new service
@@ -20,6 +30,7 @@ builder.Services.AddScoped<TareasService, TareasService>();
 var connectionString = builder.Configuration.GetConnectionString("Connection");
 builder.Services.AddDbContext<AplicacionDbContexto>(
    options => options.UseSqlServer(connectionString));
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -32,8 +43,18 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors("AllowReact");
+// Usar la política de desarrollo que es más permisiva
+if (app.Environment.IsDevelopment())
+{
+    app.UseCors("Development");
+}
+else
+{
+    app.UseCors("AllowReact");
+}
+
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
+
 app.Run();

@@ -11,7 +11,7 @@ namespace To_do.Modelos
         public required string Nombre { get; set; }
         public string? Descripcion { get; set; }
         public bool Completado { get; set; } = false;
-        public DateTime FechaInicio { get; set; }
-        public DateTime FechaFinal { get; set; }
+        public DateTime? FechaInicio { get; set; } = DateTime.Now;
+        public DateTime? FechaFinal { get; set; }
     }
 }
