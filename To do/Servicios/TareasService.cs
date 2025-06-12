@@ -36,7 +36,20 @@ namespace To_do.Services
                 return false;
             }
 
-            _context.Entry(tarea).State = EntityState.Modified;
+            var tareaExistente = await _context.Tareas
+                .AsTracking()
+                .FirstOrDefaultAsync(t => t.Id == id);
+
+            if (tareaExistente == null)
+            {
+                return false;
+            }
+
+            tareaExistente.Nombre = tarea.Nombre;
+            tareaExistente.Descripcion = tarea.Descripcion;
+            tareaExistente.Completado = tarea.Completado;
+            tareaExistente.FechaInicio = tarea.FechaInicio;
+            tareaExistente.FechaFinal = tarea.FechaFinal;
 
             try
             {
